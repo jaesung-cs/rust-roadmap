@@ -85,14 +85,14 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
 | 05 | 05-error-handling     | 에러 처리 (Option, Result, `?`)          | 35  | done   |
 | 06 | 06-modules-cargo      | 모듈, 크레이트, Cargo                      | 25  | done   |
 | 07 | 07-collections        | 컬렉션과 문자열                            | 35  | done   |
-| 08 | 08-traits-generics    | 트레이트와 제네릭                          | 45  | draft  |
-| 09 | 09-lifetimes          | 라이프타임                                | 40  | draft  |
-| 10 | 10-closures-iterators | 클로저와 반복자                            | 40  | draft  |
-| 11 | 11-smart-pointers     | 스마트 포인터와 내부 가변성                  | 40  | draft  |
-| 12 | 12-concurrency        | 동시성 (Send/Sync, 스레드, 채널, Mutex)    | 40  | draft  |
-| 13 | 13-async              | async/await와 tokio                       | 35  | draft  |
-| 14 | 14-macros-idioms      | 매크로와 관용적 Rust                        | 25  | draft  |
-| 15 | 15-unsafe-ffi         | unsafe와 FFI                              | 35  | draft  |
-| 16 | 16-project            | 마무리 프로젝트와 다음 단계                  | 25  | draft  |
+| 08 | 08-traits-generics    | 트레이트와 제네릭                          | 45  | done   |
+| 09 | 09-lifetimes          | 라이프타임                                | 40  | done   |
+| 10 | 10-closures-iterators | 클로저와 반복자                            | 40  | done   |
+| 11 | 11-smart-pointers     | 스마트 포인터와 내부 가변성                  | 40  | done   |
+| 12 | 12-concurrency        | 동시성 (Send/Sync, 스레드, 채널, Mutex)    | 40  | done   |
+| 13 | 13-async              | async/await와 tokio                       | 35  | done   |
+| 14 | 14-macros-idioms      | 매크로와 관용적 Rust                        | 25  | done   |
+| 15 | 15-unsafe-ffi         | unsafe와 FFI                              | 35  | done   |
+| 16 | 16-project            | 마무리 프로젝트와 다음 단계                  | 25  | done   |
 
 Batches: (00–03), (04–07), (08–11), (12–15), (16).
