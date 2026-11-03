@@ -1,6 +1,6 @@
 # rust-roadmap
 
-A compact (< 10h) Rust course for C++ developers. Lectures are written in Korean (`lectures/*.md`).
+A compact Rust course for C++ developers. Lectures are written in Korean (`lectures/*.md`).
 
 ```sh
 npm install

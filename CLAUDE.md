@@ -46,6 +46,7 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
   ---
   ```
 - `minutes` is the honest reading + exercise time. **Keep the total of all chapters ≤ 600 minutes (10h).**
+  This budget is an internal authoring constraint; don't state a target course duration in the lecture text.
   Aim for about 150–300 lines per chapter. Be compact; prefer a table or a short example over long prose.
 - Chapter template (H2 sections): opening paragraph (what and why) → concept sections, each with
   a C++ comparison where relevant → `## 흔한 컴파일 에러` (common errors, with real `error[E....]` codes) → `## 정리` (summary bullets)
@@ -75,10 +76,10 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
 
 | #  | Slug                  | Title                                   | Min | Status |
 |----|-----------------------|-----------------------------------------|-----|--------|
-| 00 | 00-intro              | 소개와 환경 설정                          | 20  | draft  |
-| 01 | 01-basics             | 기본 문법                                 | 30  | draft  |
-| 02 | 02-ownership          | 소유권과 이동                             | 45  | draft  |
-| 03 | 03-borrowing          | 빌림과 참조                               | 45  | draft  |
+| 00 | 00-intro              | 소개와 환경 설정                          | 20  | done   |
+| 01 | 01-basics             | 기본 문법                                 | 30  | done   |
+| 02 | 02-ownership          | 소유권과 이동                             | 45  | done   |
+| 03 | 03-borrowing          | 빌림과 참조                               | 45  | done   |
 | 04 | 04-structs-enums      | 구조체, 열거형, 패턴 매칭                  | 40  | todo   |
 | 05 | 05-error-handling     | 에러 처리 (Option, Result, `?`)          | 35  | todo   |
 | 06 | 06-modules-cargo      | 모듈, 크레이트, Cargo                      | 25  | todo   |
