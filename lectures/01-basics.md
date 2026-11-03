@@ -77,7 +77,7 @@ let e = u8::try_from(300_i32); // 실패할 수 있는 변환 → Err(...)
 println!("{c} {d} {e:?}");
 ```
 
-`as`는 C의 캐스트처럼 잘림(truncation)이 일어날 수 있으니, 손실 없는 변환은 `From`, 실패 가능한 변환은 `TryFrom`을 쓰는 습관을 들여라. 이 트레이트들은 8장에서 다룬다.
+`as`는 C의 캐스트처럼 잘림(truncation)이 일어날 수 있으니, 손실 없는 변환은 `From`, 실패 가능한 변환은 `TryFrom`을 쓰는 습관을 들이자. 이 트레이트들은 8장에서 다룬다.
 
 ### 정수 오버플로
 
@@ -263,9 +263,9 @@ println!("{x}");    // error[E0381]: used binding `x` isn't initialized
 
 ## 연습문제
 
-1. 섭씨 온도 `f64`를 화씨로 바꾸는 `fn c_to_f(c: f64) -> f64`를 작성하고, `-40.0`, `0.0`, `100.0`을 소수점 1자리로 출력해라.
-2. `loop`와 `break 값`을 사용해 1부터 시작해 누적합이 처음으로 1000을 넘는 순간의 `n`을 구해라.
-3. `u8` 값 200과 100을 더할 때 `checked_add`, `wrapping_add`, `saturating_add`의 결과를 각각 출력해라.
+1. 섭씨 온도 `f64`를 화씨로 바꾸는 `fn c_to_f(c: f64) -> f64`를 작성하고, `-40.0`, `0.0`, `100.0`을 소수점 1자리로 출력하자.
+2. `loop`와 `break 값`을 사용해 1부터 시작해 누적합이 처음으로 1000을 넘는 순간의 `n`을 구하자.
+3. `u8` 값 200과 100을 더할 때 `checked_add`, `wrapping_add`, `saturating_add`의 결과를 각각 출력하자.
 
 <details>
 <summary>정답</summary>

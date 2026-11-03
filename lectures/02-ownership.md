@@ -216,7 +216,7 @@ drop a
 > [!cpp] **C++ 비교**
 >
 > 구조체 필드의 drop 순서는 C++과 **반대**이다. C++은 멤버를 선언의 역순으로 소멸시키지만, Rust는 필드를 **선언 순서대로** drop한다.
-> 필드 간 소멸 순서에 의존하는 코드라면 주의해라.
+> 필드 간 소멸 순서에 의존하는 코드라면 주의하자.
 
 ## 부분 이동
 
@@ -275,7 +275,7 @@ help: consider cloning the value if the performance cost is acceptable
 
 ## 연습문제
 
-1. 아래 코드가 왜 컴파일되지 않는지 설명하고, 두 가지 방법(`clone` 사용, 반환값으로 돌려받기)으로 고쳐라.
+1. 아래 코드가 왜 컴파일되지 않는지 설명하고, 두 가지 방법(`clone` 사용, 반환값으로 돌려받기)으로 고치자.
 
    ```rust
    fn shout(s: String) -> usize {
@@ -290,8 +290,8 @@ help: consider cloning the value if the performance cost is acceptable
    }
    ```
 
-2. 다음 각 변수가 `let b = a;` 이후에도 `a`를 쓸 수 있는지 예측해라: `a: (i32, f64)`, `a: [String; 2]`, `a: &String`, `a: (i32, String)`.
-3. `Noisy`를 필드로 두 개 갖는 구조체를 만들어 drop 순서를 확인해라. C++ 클래스 멤버 소멸 순서와 비교해 봐라.
+2. 다음 각 변수가 `let b = a;` 이후에도 `a`를 쓸 수 있는지 예측하자: `a: (i32, f64)`, `a: [String; 2]`, `a: &String`, `a: (i32, String)`.
+3. `Noisy`를 필드로 두 개 갖는 구조체를 만들어 drop 순서를 확인하자. C++ 클래스 멤버 소멸 순서와 비교해 보자.
 
 <details>
 <summary>정답</summary>

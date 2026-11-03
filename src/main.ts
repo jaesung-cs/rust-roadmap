@@ -2,12 +2,14 @@ import './style.css';
 import { marked } from 'marked';
 import hljs from 'highlight.js/lib/core';
 import rust from 'highlight.js/lib/languages/rust';
+import c from 'highlight.js/lib/languages/c';
 import cpp from 'highlight.js/lib/languages/cpp';
 import bash from 'highlight.js/lib/languages/bash';
 import ini from 'highlight.js/lib/languages/ini';
 import { lectures, totalMinutes, findLecture, home, type Lecture } from './lectures';
 
 hljs.registerLanguage('rust', rust);
+hljs.registerLanguage('c', c);
 hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('sh', bash);
@@ -111,6 +113,7 @@ function renderHome() {
           .join('')}
       </ol>
     </article>`;
+  enhanceMarkdown(content);
   outline.innerHTML = '';
   renderToc();
 }
@@ -145,8 +148,8 @@ function renderLecture(l: Lecture) {
   renderToc(l.slug);
 }
 
-// Post-process rendered markdown: code highlighting, callouts, heading ids, outline.
-function enhance(root: HTMLElement) {
+// Post-process rendered markdown: code highlighting, callouts, external links.
+function enhanceMarkdown(root: HTMLElement) {
   root.querySelectorAll<HTMLElement>('pre code').forEach((el) => {
     const lang = [...el.classList].find((c) => c.startsWith('language-'))?.slice(9);
     if (lang && hljs.getLanguage(lang)) hljs.highlightElement(el);
@@ -166,6 +169,11 @@ function enhance(root: HTMLElement) {
     a.target = '_blank';
     a.rel = 'noopener';
   });
+}
+
+// Lecture pages additionally get heading ids and an outline.
+function enhance(root: HTMLElement) {
+  enhanceMarkdown(root);
 
   const headings = [...root.querySelectorAll<HTMLElement>('article h2, article h3')];
   headings.forEach((h, i) => (h.id = `sec-${i}`));

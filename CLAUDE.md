@@ -47,13 +47,14 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
   ```
 - `minutes` is the honest reading + exercise time. **Keep the total of all chapters ≤ 600 minutes (10h).**
   This budget is an internal authoring constraint; don't state a target course duration in the lecture text.
+  The home page (`lectures/index.md`) shows the computed total via `{{total}}` as a rough estimate only.
   Aim for about 150–300 lines per chapter. Be compact; prefer a table or a short example over long prose.
 - Chapter template (H2 sections): opening paragraph (what and why) → concept sections, each with
   a C++ comparison where relevant → `## 흔한 컴파일 에러` (common errors, with real `error[E....]` codes) → `## 정리` (summary bullets)
   → `## 연습문제` (2–3 exercises, answers in `<details><summary>정답</summary> ... </details>`; leave blank lines
   inside `<details>` so markdown renders).
 - Style: concise plain written form (해라체 / 반말), not 존댓말. Sentences end in `~다`, `~한다`, `~이다`
-  (contract to `~다` after a vowel: `관용구다`). Instructions use `~해라` or `~하자`; questions use `~까?`.
+  (contract to `~다` after a vowel: `관용구다`). Instructions and suggestions use the softer `~하자` / `~해 보자` (or `~하면 된다`), never commands like `~해라` / `~해 봐라`; questions use `~까?`.
   Never use `~습니다`, `~ㅂ니다`, `~세요`, `~요`. Keep sentences short and cut filler.
 - Technical terms: Korean followed by the English term in parentheses on first use, e.g. 소유권(ownership). Keep Rust identifiers and keywords in English.
 - Code blocks always have a language tag: `rust`, `cpp`, `toml`, `sh` (`text` for compiler output).
@@ -72,7 +73,7 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
   for the user's approval** before starting the next batch.
 - When a batch is approved, update the status column below.
 
-## Curriculum (total ≈ 9h 30m)
+## Curriculum (total = 600 min)
 
 | #  | Slug                  | Title                                   | Min | Status |
 |----|-----------------------|-----------------------------------------|-----|--------|
@@ -80,18 +81,18 @@ Audience: an experienced C++ developer. Skip generic programming basics and expl
 | 01 | 01-basics             | 기본 문법                                 | 30  | done   |
 | 02 | 02-ownership          | 소유권과 이동                             | 45  | done   |
 | 03 | 03-borrowing          | 빌림과 참조                               | 45  | done   |
-| 04 | 04-structs-enums      | 구조체, 열거형, 패턴 매칭                  | 40  | todo   |
-| 05 | 05-error-handling     | 에러 처리 (Option, Result, `?`)          | 35  | todo   |
-| 06 | 06-modules-cargo      | 모듈, 크레이트, Cargo                      | 25  | todo   |
-| 07 | 07-collections        | 컬렉션과 문자열                            | 35  | todo   |
-| 08 | 08-traits-generics    | 트레이트와 제네릭                          | 50  | todo   |
-| 09 | 09-lifetimes          | 라이프타임                                | 45  | todo   |
-| 10 | 10-closures-iterators | 클로저와 반복자                            | 40  | todo   |
-| 11 | 11-smart-pointers     | 스마트 포인터와 내부 가변성                  | 40  | todo   |
-| 12 | 12-concurrency        | 동시성 (Send/Sync, 스레드, 채널, Mutex)    | 45  | todo   |
-| 13 | 13-async              | async/await와 tokio                       | 40  | todo   |
-| 14 | 14-macros-idioms      | 매크로와 관용적 Rust                        | 30  | todo   |
-| 15 | 15-unsafe-ffi         | unsafe와 FFI                              | 35  | todo   |
-| 16 | 16-project            | 마무리 프로젝트와 다음 단계                  | 30  | todo   |
+| 04 | 04-structs-enums      | 구조체, 열거형, 패턴 매칭                  | 40  | done   |
+| 05 | 05-error-handling     | 에러 처리 (Option, Result, `?`)          | 35  | done   |
+| 06 | 06-modules-cargo      | 모듈, 크레이트, Cargo                      | 25  | done   |
+| 07 | 07-collections        | 컬렉션과 문자열                            | 35  | done   |
+| 08 | 08-traits-generics    | 트레이트와 제네릭                          | 45  | draft  |
+| 09 | 09-lifetimes          | 라이프타임                                | 40  | draft  |
+| 10 | 10-closures-iterators | 클로저와 반복자                            | 40  | draft  |
+| 11 | 11-smart-pointers     | 스마트 포인터와 내부 가변성                  | 40  | draft  |
+| 12 | 12-concurrency        | 동시성 (Send/Sync, 스레드, 채널, Mutex)    | 40  | draft  |
+| 13 | 13-async              | async/await와 tokio                       | 35  | draft  |
+| 14 | 14-macros-idioms      | 매크로와 관용적 Rust                        | 25  | draft  |
+| 15 | 15-unsafe-ffi         | unsafe와 FFI                              | 35  | draft  |
+| 16 | 16-project            | 마무리 프로젝트와 다음 단계                  | 25  | draft  |
 
 Batches: (00–03), (04–07), (08–11), (12–15), (16).

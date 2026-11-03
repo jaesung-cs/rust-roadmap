@@ -66,7 +66,7 @@ rustup update        # 최신 stable로 업데이트
 | `rust-analyzer` | 언어 서버 (IDE 확장으로 설치) | clangd |
 
 에디터는 VS Code + **rust-analyzer** 확장을 추천한다. 타입 추론 결과를 인라인으로 보여 줘서 학습에 큰 도움이 된다.
-설치 없이 바로 실험하려면 [Rust Playground](https://play.rust-lang.org)를 써라.
+설치 없이 바로 실험하려면 [Rust Playground](https://play.rust-lang.org)를 쓰자.
 
 ## 첫 프로젝트
 
@@ -127,7 +127,7 @@ cargo add serde        # 의존성 추가 (Cargo.toml 수정)
 
 > [!tip] **팁**
 >
-> 개발 중에는 `cargo build`보다 `cargo check`를 자주 돌려라. 코드 생성을 건너뛰므로 훨씬 빠르다.
+> 개발 중에는 `cargo build`보다 `cargo check`를 자주 돌리자. 코드 생성을 건너뛰므로 훨씬 빠르다.
 > 성능 측정은 반드시 `--release`로 해야 한다. debug 빌드는 C++의 `-O0`처럼 매우 느릴 수 있다.
 
 ## C++과 관점이 다른 점 한눈에 보기
@@ -174,9 +174,9 @@ rustc --explain E0382
 
 ## 연습문제
 
-1. `cargo new hello`로 프로젝트를 만들고 `cargo run`, `cargo build --release`를 실행해 `target/` 아래에 생기는 디렉터리를 확인해라.
-2. `main.rs`에 `println!("{}", 1 + );` 같은 문법 오류를 넣고 `cargo check`의 에러 메시지를 읽어 봐라.
-3. `cargo clippy`와 `cargo fmt`를 실행해 봐라. 일부러 들여쓰기를 망가뜨린 뒤 `cargo fmt`가 고치는지 확인해라.
+1. `cargo new hello`로 프로젝트를 만들고 `cargo run`, `cargo build --release`를 실행해 `target/` 아래에 생기는 디렉터리를 확인하자.
+2. `main.rs`에 `println!("{}", 1 + );` 같은 문법 오류를 넣고 `cargo check`의 에러 메시지를 읽어 보자.
+3. `cargo clippy`와 `cargo fmt`를 실행해 보자. 일부러 들여쓰기를 망가뜨린 뒤 `cargo fmt`가 고치는지 확인하자.
 
 <details>
 <summary>정답 / 힌트</summary>
