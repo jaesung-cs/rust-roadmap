@@ -1,0 +1,26 @@
+{
+  "name": "rust-roadmap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rust lectures for C++ developers (static site)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:lan": "vite --host",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaesung-cs/rust-roadmap.git"
+  },
+  "homepage": "https://jaesung-cs.github.io/rust-roadmap/",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "dependencies": {
+    "highlight.js": "^11.12.0",
+    "marked": "^18.1.3"
+  }
+}

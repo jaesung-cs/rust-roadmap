@@ -1,0 +1,632 @@
+:root {
+  --bg: #fbfaf8;
+  --bg-soft: #f2efea;
+  --fg: #1f1d1a;
+  --fg-muted: #6b665e;
+  --border: #e3ded6;
+  --accent: #b7410e;
+  --accent-soft: #f6e4da;
+  --code-bg: #f4f1ec;
+  --cpp: #2f5d8a;
+  --cpp-soft: #e5edf5;
+  --warn: #9a6a00;
+  --warn-soft: #fbf1d9;
+  --tip: #2e7d4f;
+  --tip-soft: #e3f2e8;
+  --hl-keyword: #a2361b;
+  --hl-string: #3f7a2e;
+  --hl-comment: #8a847a;
+  --hl-number: #8a4fb0;
+  --hl-type: #2f5d8a;
+  --hl-title: #8a5a00;
+  --hl-meta: #6b665e;
+  --topbar-h: 52px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #17161a;
+    --bg-soft: #1f1e23;
+    --fg: #e8e6e3;
+    --fg-muted: #9c978f;
+    --border: #2e2c33;
+    --accent: #f08a5d;
+    --accent-soft: #3a2620;
+    --code-bg: #1f1e24;
+    --cpp: #8ab6e0;
+    --cpp-soft: #1d2835;
+    --warn: #e6b450;
+    --warn-soft: #2f2715;
+    --tip: #7fcf9a;
+    --tip-soft: #1a2b21;
+    --hl-keyword: #ff8f6b;
+    --hl-string: #a5d6a7;
+    --hl-comment: #7d786f;
+    --hl-number: #d1a3f0;
+    --hl-type: #8ab6e0;
+    --hl-title: #f2c46d;
+    --hl-meta: #9c978f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #17161a;
+  --bg-soft: #1f1e23;
+  --fg: #e8e6e3;
+  --fg-muted: #9c978f;
+  --border: #2e2c33;
+  --accent: #f08a5d;
+  --accent-soft: #3a2620;
+  --code-bg: #1f1e24;
+  --cpp: #8ab6e0;
+  --cpp-soft: #1d2835;
+  --warn: #e6b450;
+  --warn-soft: #2f2715;
+  --tip: #7fcf9a;
+  --tip-soft: #1a2b21;
+  --hl-keyword: #ff8f6b;
+  --hl-string: #a5d6a7;
+  --hl-comment: #7d786f;
+  --hl-number: #d1a3f0;
+  --hl-type: #8ab6e0;
+  --hl-title: #f2c46d;
+  --hl-meta: #9c978f;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: calc(var(--topbar-h) + 16px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, -apple-system, sans-serif;
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--accent);
+}
+code,
+pre,
+kbd {
+  font-family: 'JetBrains Mono', 'D2Coding', Consolas, 'SF Mono', monospace;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.spacer {
+  flex: 1;
+}
+.progress-summary {
+  font-size: 13px;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.icon-btn {
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--fg);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 16px;
+}
+#menu-toggle {
+  display: none;
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 220px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.toc,
+.outline {
+  position: sticky;
+  top: var(--topbar-h);
+  height: calc(100vh - var(--topbar-h));
+  overflow-y: auto;
+  padding: 20px 12px;
+}
+.toc {
+  border-right: 1px solid var(--border);
+}
+.toc a {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  gap: 6px;
+  align-items: baseline;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.toc a:hover {
+  background: var(--bg-soft);
+}
+.toc a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.toc .num,
+.chapter-list .num {
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+}
+.toc .m {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+.toc a.done .m {
+  color: var(--tip);
+}
+
+.outline {
+  font-size: 13px;
+}
+.outline-title {
+  font-weight: 700;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.outline a {
+  display: block;
+  padding: 3px 0;
+  color: var(--fg-muted);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.outline a:hover {
+  color: var(--accent);
+}
+.outline a.h3 {
+  padding-left: 12px;
+}
+
+.content {
+  padding: 32px 48px 64px;
+  min-width: 0;
+}
+
+/* ---------- Article ---------- */
+.markdown {
+  max-width: 780px;
+}
+.markdown .meta {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.markdown h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin: 4px 0 24px;
+}
+.markdown h2 {
+  font-size: 1.45rem;
+  margin: 48px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.markdown h3 {
+  font-size: 1.15rem;
+  margin: 32px 0 8px;
+}
+.markdown p,
+.markdown li {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.markdown :not(pre) > code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.88em;
+}
+.markdown pre {
+  position: relative;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.markdown pre[data-lang]:not([data-lang=''])::after {
+  content: attr(data-lang);
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 11px;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+}
+.markdown pre[data-lang='cpp'] {
+  border-left: 3px solid var(--cpp);
+}
+.markdown pre[data-lang='rust'] {
+  border-left: 3px solid var(--accent);
+}
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  font-size: 14.5px;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--border);
+  padding: 7px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.markdown th {
+  background: var(--bg-soft);
+}
+.markdown blockquote {
+  margin: 20px 0;
+  padding: 10px 18px;
+  border-left: 4px solid var(--border);
+  background: var(--bg-soft);
+  border-radius: 0 10px 10px 0;
+}
+.markdown blockquote.cpp {
+  border-color: var(--cpp);
+  background: var(--cpp-soft);
+}
+.markdown blockquote.cpp > p:first-child > strong:first-child {
+  color: var(--cpp);
+}
+.markdown blockquote.warn {
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+.markdown blockquote.warn > p:first-child > strong:first-child {
+  color: var(--warn);
+}
+.markdown blockquote.tip {
+  border-color: var(--tip);
+  background: var(--tip-soft);
+}
+.markdown blockquote.tip > p:first-child > strong:first-child {
+  color: var(--tip);
+}
+.markdown details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin: 12px 0;
+}
+.markdown summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+kbd {
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 0.85em;
+  background: var(--bg-soft);
+}
+
+.chapter-list {
+  list-style: none;
+  padding: 0;
+}
+.chapter-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.chapter-list a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 500;
+}
+.chapter-list a:hover {
+  color: var(--accent);
+}
+.chapter-list .num {
+  display: inline-block;
+  width: 30px;
+}
+.chapter-list .m {
+  color: var(--fg-muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.chapter-list li.done .m {
+  color: var(--tip);
+}
+
+/* ---------- Footer ---------- */
+.lecture-footer {
+  max-width: 780px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.done-btn {
+  border: 1px solid var(--tip);
+  background: transparent;
+  color: var(--tip);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.done-btn.is-done {
+  background: var(--tip);
+  color: var(--bg);
+}
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+.pager a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+}
+.pager a:hover {
+  background: var(--bg-soft);
+}
+
+/* ---------- Syntax highlight ---------- */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: var(--hl-keyword);
+}
+.hljs-string,
+.hljs-char {
+  color: var(--hl-string);
+}
+.hljs-comment {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+.hljs-number,
+.hljs-literal {
+  color: var(--hl-number);
+}
+.hljs-type,
+.hljs-built_in,
+.hljs-class {
+  color: var(--hl-type);
+}
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: var(--hl-title);
+}
+.hljs-meta,
+.hljs-attr,
+.hljs-symbol {
+  color: var(--hl-meta);
+}
+
+/* Inline outline shown at the top of the article when the side outline is hidden. */
+.mobile-outline {
+  display: none;
+}
+.backdrop {
+  display: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .outline {
+    display: none;
+  }
+  .markdown .mobile-outline {
+    display: block;
+    margin: 0 0 28px;
+    font-size: 14px;
+  }
+  .mobile-outline a {
+    display: block;
+    padding: 5px 0;
+    color: var(--fg-muted);
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .mobile-outline a.h3 {
+    padding-left: 14px;
+  }
+}
+@media (max-width: 820px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-size: 16.5px;
+    line-height: 1.8;
+  }
+  .topbar {
+    padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+  }
+  .brand {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+  #menu-toggle {
+    display: inline-block;
+  }
+  .progress-summary {
+    display: none;
+  }
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .toc {
+    position: fixed;
+    left: 0;
+    top: var(--topbar-h);
+    height: calc(100dvh - var(--topbar-h));
+    width: min(320px, 85vw);
+    z-index: 15;
+    background: var(--bg);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 0.2s ease,
+      visibility 0.2s;
+    box-shadow: 0 0 24px rgb(0 0 0 / 0.15);
+    overscroll-behavior: contain;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+  .toc a {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+  body.menu-open .toc {
+    transform: none;
+    visibility: visible;
+  }
+  body.menu-open .backdrop {
+    display: block;
+    position: fixed;
+    inset: var(--topbar-h) 0 0 0;
+    z-index: 14;
+    background: rgb(0 0 0 / 0.35);
+  }
+  body.menu-open {
+    overflow: hidden;
+  }
+  .content {
+    padding: 20px max(16px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
+  }
+  .markdown h1 {
+    font-size: 1.55rem;
+    margin-bottom: 18px;
+  }
+  .markdown h2 {
+    font-size: 1.3rem;
+    margin-top: 40px;
+  }
+  .markdown h3 {
+    font-size: 1.1rem;
+  }
+  .markdown ul,
+  .markdown ol {
+    padding-left: 1.3em;
+  }
+  /* Top-level code blocks run edge to edge to give code the full screen width. */
+  .markdown > pre {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+  .markdown > pre[data-lang='cpp'],
+  .markdown > pre[data-lang='rust'] {
+    border-left-width: 3px;
+  }
+  .markdown pre {
+    font-size: 13px;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* The language label would overlap code; the colored left border already marks rust/cpp. */
+  .markdown pre[data-lang]::after {
+    display: none;
+  }
+  .markdown blockquote {
+    margin: 18px 0;
+    padding: 8px 14px;
+  }
+  .markdown table {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  /* Keep Korean words and short code intact; wide tables scroll horizontally instead. */
+  .markdown th,
+  .markdown td {
+    padding: 6px 9px;
+    word-break: keep-all;
+    min-width: 5.5em;
+  }
+  .markdown td code {
+    white-space: nowrap;
+  }
+  .markdown blockquote table {
+    margin-right: -14px;
+  }
+  .chapter-list li {
+    padding: 12px 2px;
+  }
+  .done-btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  .pager {
+    flex-direction: column;
+  }
+  .pager a {
+    padding: 12px 14px;
+  }
+  .pager .next {
+    text-align: right;
+  }
+}
